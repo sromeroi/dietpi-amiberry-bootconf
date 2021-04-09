@@ -18,9 +18,7 @@ and:
 
 # Sample usage output
 
-```
-
-# change_default_amiberry_config.py
+```# change_default_amiberry_config.py
 
 -- Set default configuration for Amiberry --
 
@@ -45,6 +43,5 @@ Change finished. Please restart with 'reboot' to apply changes.
 # TODO
 
 - Read confpath from DietPi's configuration (do not assume /mnt/dietpi_userdata).
--
 - Detect Amiberry's version as the --config/-config parameter format changed in 3.x.
 
