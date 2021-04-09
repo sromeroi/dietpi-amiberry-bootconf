@@ -23,7 +23,8 @@ Please note that the current parameter format (`--config "filename.uae"`) will w
 
 Just run the script and select the desired configuration file, or "0" to boot into the GUI.
 
-```# change_default_amiberry_config.py
+```
+# change_default_amiberry_config.py
 
 -- Set default configuration for Amiberry --
 
