@@ -49,4 +49,5 @@ Change finished. Please restart with 'reboot' to apply changes.
 
 - Read confpath from DietPi's configuration (do not assume /mnt/dietpi_userdata).
 - Detect Amiberry's version as the --config/-config parameter format changed in 3.x.
+- The script has builin support for i18n into the `lang="XX"` variable. Allow the user to set the language via command line parameter, or get it from $LANG.
 
