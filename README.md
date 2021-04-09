@@ -16,7 +16,33 @@ and:
 
 `ExecStart=/mnt/dietpi_userdata/amiberry/amiberry --config "./conf/CONFIG_FILE_NAME.uae" -G`
 
-# TODO:
+# Sample usage output
+
+```
+
+# change_default_amiberry_config.py
+
+-- Set default configuration for Amiberry --
+
+Current default config:
+
+    AGPLUS.uae
+
+Please select a configuration to boot into:
+
+    0.- None (boot in Amiberry's GUI)
+    1.- AGPLUS.uae (*)
+    2.- A1200 WHDLOAD OS31.uae
+    3.- MegaAGS.uae
+    q.- Exit with no changes.
+
+Select an option: 3
+
+Change finished. Please restart with 'reboot' to apply changes.
+
+```
+
+# TODO
 
 - Read confpath from DietPi's configuration (do not assume /mnt/dietpi_userdata).
 -
