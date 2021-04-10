@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 
+#
 # Change initial boot config for Diet-Pi + Amiberry 3.3
 # 2021 - Santiago Romero (sromero at gmail)
 #
@@ -8,7 +8,7 @@
 # This script reads the existing configuration files (*.uae) in
 # /mnt/dietpi_userdata/amiberry/ and allows to boot Amiberry into
 # an specific configuration bypassing the GUI.
-# 
+#
 # It does it by altering the start parameters for the binary in
 # the systemd's Amiberry service file.
 #
@@ -78,7 +78,7 @@ def replaceConfig(service_file, option):
     if not os.path.exists(service_file) and os.path.isfile(service_file):
         print("ERROR: File '{}' does not exist".format(service_file))
         sys.exit(3)
-    
+
     try:
         fp = open(service_file, "r")
         lines = fp.readlines()
@@ -106,7 +106,7 @@ def replaceConfig(service_file, option):
     except:
         print("ERROR: File '{}' cannot be written".format(service_file))
         sys.exit(5)
-       
+
 
 #--------------------------------------------------------------------------------
 def main():
