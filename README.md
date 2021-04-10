@@ -16,10 +16,14 @@ and:
 
 `ExecStart=/mnt/dietpi_userdata/amiberry/amiberry --config "./conf/CONFIG_FILE_NAME.uae" -G`
 
-# Sample usage output
+Please note that the current parameter format (`--config "filename.uae"`) will work with Amiberry 3.3. Other versiones use the `-config=filename.uae` format.
+
+
+## Sample usage output
+
+Just run the script and select the desired configuration file, or "0" to boot into the GUI.
 
 ```
-
 # change_default_amiberry_config.py
 
 -- Set default configuration for Amiberry --
@@ -42,9 +46,9 @@ Change finished. Please restart with 'reboot' to apply changes.
 
 ```
 
-# TODO
+## TODO
 
 - Read confpath from DietPi's configuration (do not assume /mnt/dietpi_userdata).
--
 - Detect Amiberry's version as the --config/-config parameter format changed in 3.x.
+- The script has builin support for i18n into the `lang="XX"` variable. Allow the user to set the language via command line parameter, or get it from $LANG.
 
