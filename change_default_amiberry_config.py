@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 #
 # Change initial boot config for Diet-Pi + Amiberry 3.3
-# 2021 - Santiago Romero (sromero at gmail)
 #
 # By default, Amiberry boots into the GUI.
 #
@@ -14,7 +13,6 @@
 #
 # TODO:
 # - Read confpath from DietPi's configuration (do not assume /mnt/dietpi_userdata)
-# - Detect Amiberry's version as the --config/-config parameter format changed in 3.x.
 #
 
 import os
@@ -26,11 +24,7 @@ service_file = "/etc/systemd/system/amiberry.service"
 confpath = "/mnt/dietpi_userdata/amiberry/conf"
 lang = "en"
 
-# Amiberry 3.3
 confparam = "--config \"./conf/{}\" -G"
-
-# Amiberry >=3.4
-#confparam = "-config=\"./conf/{}\" -G"
 
 #--- Basic i18n support --------------------------------------------------------
 i18n_strings = {
@@ -65,11 +59,16 @@ def i18n( key ):
 def getExecStartLine(service_file):
     line = ''
 
-    # Get current config line
-    with open(service_file) as fp:
-        for line in fp:
-            if re.match('^ExecStart=', line):
-                break
+    try:
+        # Get current config line
+        with open(service_file) as fp:
+            for line in fp:
+                if line.startswith('ExecStart='):
+                    break
+    except:
+        print("ERROR: File '{}' cannot be read".format(service_file))
+        sys.exit(4)
+
     return line
 
 
@@ -87,8 +86,7 @@ def replaceConfig(service_file, option):
         print("ERROR: File '{}' cannot be read".format(service_file))
         sys.exit(4)
 
-    for i in range(0, len(lines)):
-        line = lines[i]
+    for i, line in enumerate(lines):
         if line.startswith("ExecStart="):
             match = re.search("^(ExecStart=[A-Za-z0-9_/\-]*)", line)
             command = match.group(1)
